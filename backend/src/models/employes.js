@@ -26,6 +26,18 @@ const employeeSchema=new mongoose.Schema({
     address:{
         type:String,
         required:true
+    },
+    level : {
+        type: Number
+        
+        
+    },
+    department:{
+        type: String
+
+    },
+    designation:{
+        type: String
     }
 })
 // creating a new collection
