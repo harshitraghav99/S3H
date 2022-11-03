@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/employees",{
+mongoose.connect("mongodb://0.0.0.0:27017/employees",{
     // useCreateIndex:true,
     // useNewUrlParser:true,
     // useUnifiedTopology:true

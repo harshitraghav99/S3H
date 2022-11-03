@@ -1,5 +1,5 @@
 const express =  require("express");
-const Employee = require("../models/employees")
+const Employee = require("../models/employes")
 const router = new express.Router();
 
 
@@ -21,7 +21,7 @@ const router = new express.Router();
 
 router.post("/employees", async (req, res) => {
     try {
-        const employee = new employee(req.body);
+        const employee = new Employee(req.body);
         const createUser = await employee.save();
         res.status(201).send(createUser);
     } catch (e) {
