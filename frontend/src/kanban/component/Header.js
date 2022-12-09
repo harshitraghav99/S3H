@@ -5,7 +5,7 @@ export default class Header extends Component {
     return (
         <div className="header">
         <div className="col-12">
-         <h5 className="header-text">Kanban</h5>
+         <h5 className="header-text">Kanban Board</h5>
         </div>
         </div>
     )
