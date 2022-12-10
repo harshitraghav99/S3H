@@ -95,9 +95,9 @@ const Register = () => {
                 </div>
                 <div className="content">
                     <h1>S3H <br /><span> Development</span> <br />Tool</h1>
-                    <p className="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque
-                        expedita atque eveniet <br /> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus
-                        <br /> a quae totam ipsa illum minus laudantium?</p>
+                    <p className="par">S3H helps teams plan, assign, track, report, and manage work and brings teams together for everything from agile software development.
+Helpful in project management, task tracking and requirement management.
+It helps the employee to be active because of Kanban bord which shows the complete, incomplete work.</p>
 
                     <button className="cn"><a href="#">JOIN US</a></button>
 
