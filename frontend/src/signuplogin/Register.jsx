@@ -1,4 +1,5 @@
-import React,{useState,useEffect} from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useEffect } from "react";
 import './z.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -96,19 +97,19 @@ const Register = () => {
                 <div className="content">
                     <h1>S3H <br /><span> Development</span> <br />Tool</h1>
                     <p className="par">S3H helps teams plan, assign, track, report, and manage work and brings teams together for everything from agile software development.
-Helpful in project management, task tracking and requirement management.
-It helps the employee to be active because of Kanban bord which shows the complete, incomplete work.</p>
+                        Helpful in project management, task tracking and requirement management.
+                        It helps the employee to be active because of Kanban bord which shows the complete, incomplete work</p>
 
                     <button className="cn"><a href="#">JOIN US</a></button>
 
                     <div className="form">
                         <form onSubmit={(event) => handleSubmit(event)}>
                             <h2>Register Here</h2>
-                            <input type="text" name="username" placeholder="Enter Name Here" onChange={(e) => handleChange(e)}/>
-                            <input type="email" name="email" placeholder="Enter Email Here" onChange={(e) => handleChange(e)}/>
-                            <input type="password" name="password" placeholder="Enter Password Here" onChange={(e) => handleChange(e)}/>
-                            <input type="password" name="confirmPassword" placeholder="Confirm Password " onChange={(e) => handleChange(e)}/>
-                            <button type="submit" className="btnn" ></button>
+                            <input type="text" name="username" placeholder="Enter Name Here" onChange={(e) => handleChange(e)} />
+                            <input type="email" name="email" placeholder="Enter Email Here" onChange={(e) => handleChange(e)} />
+                            <input type="password" name="password" placeholder="Enter Password Here" onChange={(e) => handleChange(e)} />
+                            <input type="password" name="confirmPassword" placeholder="Confirm Password " onChange={(e) => handleChange(e)} />
+                            <button type="submit" className="btnn" > register</button>
 
                             <p className="link">Don't have an account<br />
                                 <Link to="/login">Login </Link> here</p>
