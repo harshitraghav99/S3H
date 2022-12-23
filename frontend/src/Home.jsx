@@ -10,15 +10,12 @@ const Home =()=>{
     useEffect(() => {
       console.log("in home")
         const temp = async()=>{
-        if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+        if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
           console.log("login")
           navigate("/login");
           
         }
-        else {
-          setCurrentUser( await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)))
-          setIsLoaded(true);
-        }
+      
       }
       temp();
     

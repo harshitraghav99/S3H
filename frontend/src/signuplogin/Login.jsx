@@ -37,8 +37,10 @@ const Login = () => {
             });
             if (data.status === false) {
                 toast.error(data.msg, toastOptions)
+                console.log("check")
             }
             if (data.status === true) {
+                
                 localStorage.setItem(process.env.REACT_APP_LOCALHOST_KEY, JSON.stringify(data.user))
             }
             navigate("/")
