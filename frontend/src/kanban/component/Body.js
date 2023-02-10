@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Activityboard from './Activityboard';
 import Banner from './Banner';
 import AddListModal from './AddListModal';
+import Header from './Header';
 const kanbanData = require('../kanban.json');
 let data = kanbanData;
 export default class Body extends Component {
@@ -141,6 +142,8 @@ export default class Body extends Component {
   render() {
     // this.renderList();
     return (
+      <React.Fragment>
+        <Header/>
       <div className="body">
       <Banner openModal={this.toggleModal}/>
       <AddListModal modalStatus={this.state.openModal} closeModal={this.closeModal} createList={this.createNewList}/>
@@ -148,6 +151,7 @@ export default class Body extends Component {
           this.renderList()
         }
       </div>
+      </React.Fragment>
     )
   }
 }
