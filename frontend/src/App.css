@@ -99,6 +99,7 @@
 	position: relative;
 	z-index: 2;
 	overflow-y: hidden;
+	/* height: 100%; */
 }
 .body-scroller {
 	display: -ms-flexbox;
