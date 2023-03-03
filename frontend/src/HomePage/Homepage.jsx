@@ -1,8 +1,8 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Body from '../kanban/component/Body';
+// import Body from '../kanban/component/Body';
 import Header from '../kanban/component/Header';
-import Chat from '../chat/Chat';
+// import Chat from '../chat/Chat';
 import { useState ,useRef} from 'react';
 import { io } from "socket.io-client";
 import { useEffect } from 'react';
@@ -13,7 +13,7 @@ import ChatContainer from "../chat/components/ChatContainer";
 import { useNavigate } from "react-router-dom";
 import Welcome from '../chat/components/Welcome';
 import Backlog from '../kanban/Backlog';
-import Todo from '../kanban/Todo';
+// import Todo from '../kanban/Todo';
 const Homepage = () => {
   const socket = useRef();
   const navigate = useNavigate();
