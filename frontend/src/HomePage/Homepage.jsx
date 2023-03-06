@@ -13,14 +13,33 @@ import ChatContainer from "../chat/components/ChatContainer";
 import { useNavigate } from "react-router-dom";
 import Welcome from '../chat/components/Welcome';
 import Backlog from '../kanban/Backlog';
-// import Todo from '../kanban/Todo';
+import Todo from '../kanban/Todo';
+import Doing from '../kanban/Doing';
 const Homepage = () => {
   const socket = useRef();
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [backlog,setBacklog]= useState(false);
   
+  const [todo,setTodo]=useState(false);
+  const [doing,setDoing]=useState(false);
+  const handleOnClickBacklog=()=>{
+    setTodo(false);
+    setDoing(false);
+    setBacklog(true);    
+  }
+  const handleOnClickTodo=()=>{
+    setTodo(true);
+    setBacklog(false);
+    setDoing(false); 
+  }
+  const handleOnClickDoing=()=>{
+    setDoing(true);
+    setTodo(false);
+    setBacklog(false); 
+  }
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
@@ -77,12 +96,14 @@ const Homepage = () => {
                                     {/* KANBAN BOARD */}
         
     <div style={{width:"50%",backgroundColor:"white" ,height:"18cm" , marginLeft:"10px"}}>
-        <button type="button" class="btn btn-outline-primary"style={{marginRight:"15px"}}  >BACKLOG</button>
+        <button type="button" onClick={handleOnClickBacklog} class="btn btn-outline-primary"style={{marginRight:"15px"}} >BACKLOG</button>
+        
+        <button type="button" class="btn btn-outline-secondary" onClick={handleOnClickTodo} style={{marginRight:"15 px"}} >TODO</button>
 
-        <button type="button" class="btn btn-outline-secondary" style={{marginRight:"15 px"}} >TODO</button>
-
-        <button type="button" class="btn btn-outline-success">DOING</button>
-        <Backlog />
+        <button type="button" onClick={handleOnClickDoing} class="btn btn-outline-success">DOING</button>
+       {(backlog===true)? <Backlog/>: <></>}
+       {(doing===true)? <Doing/>: <></>}
+       {(todo===true)? <Todo/>: <></>}
         {/* <Body /> */}
 
     </div>
