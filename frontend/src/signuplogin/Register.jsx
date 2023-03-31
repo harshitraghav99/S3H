@@ -82,7 +82,7 @@ const Register = () => {
                         <ul>
                             <li><a href="#">HOME</a></li>
                             <li><a href="#">ABOUT</a></li>
-                            <li><a href="#">CONTACTUS</a></li>
+                            <li><Link to="/contactus">CONTACT US</Link></li>
 
                             <li><a href="#">LOGIN</a></li>
                         </ul>

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
 const kanbanRoutes=require("./routes/kanban")
+const contactusRoutes=require("./routes/contactusroute")
 const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
@@ -26,6 +27,7 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/kanban",kanbanRoutes);
+app.use("/api/contactus",contactusRoutes);
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
