@@ -74,7 +74,7 @@ const Login = () => {
                     <div className="menu">
                         <ul>
                             <li><a href="#">HOME</a></li>
-                            <li><a href="#">ABOUT</a></li>
+                            <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contactus">CONTACT US</Link></li>
 
                             <li><a href="#">LOGIN</a></li>
