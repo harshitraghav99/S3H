@@ -73,7 +73,7 @@ const Login = () => {
 
                     <div className="menu">
                         <ul>
-                            <li><a href="#">HOME</a></li>
+                            {/* <li><a href="#">HOME</a></li> */}
                             <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contactus">CONTACT US</Link></li>
 
@@ -81,10 +81,10 @@ const Login = () => {
                         </ul>
                     </div>
 
-                    <div className="search">
+                    {/* <div className="search">
                         <input className="srch" type="search" name="" placeholder="Type To text" />
                         <a href="#"> <button className="btn">Search</button></a>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="content">
@@ -93,7 +93,7 @@ const Login = () => {
                         Helpful in project management, task tracking and requirement management.
                         It helps the employee to be active because of Kanban bord which shows the complete, incomplete work</p>
 
-                    <button className="cn"><a href="#">JOIN US</a></button>
+                    {/* <button className="cn"><a href="#">JOIN US</a></button> */}
 
                     <div className="form">
                         <form onSubmit={(event) => handleSubmit(event)}>

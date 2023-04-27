@@ -74,7 +74,14 @@ module.exports.deleteTodo= async(req,res,next)=>{
             return res.json({ msg: "no todo to delete", status: false });
         }
         console.log(todoDelete)
-        Todo.deleteOne({index});
+        Todo.deleteOne({index},(err)=>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log("deleted");
+            }
+        });
         return res.json({ status: true, todoDelete });
     }catch(ex){
         next(ex);

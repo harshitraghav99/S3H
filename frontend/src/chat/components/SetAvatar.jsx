@@ -7,8 +7,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { setAvatarRoute } from "../../utils/APIRoutes";
+
 export default function SetAvatar() {
-  const api = `https://api.multiavatar.com/4645646`;
+  const api = `https://api.multiavatar.com/4645648`;
   const navigate = useNavigate();
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,11 +60,25 @@ export default function SetAvatar() {
     const temp=async()=>{
       const data = [];
       for (let i = 0; i < 4; i++) {
+        try{
         const image = await axios.get(
           `${api}/${Math.round(Math.random() * 1000)}`
         );
-        const buffer = new Buffer(image.data);
+        if(image){
+          console.log("image present")
+          const buffer = new Buffer(image.data);
         data.push(buffer.toString("base64"));
+        }
+
+      }catch(err){
+        console.log(err.message);
+        continue;
+      }
+        
+        
+        // const buffer = new Buffer(image.data);
+        // data.push(buffer.toString("base64"));
+        console.log(data);
       }
       setAvatars(data);
       setIsLoading(false);
@@ -86,6 +101,7 @@ export default function SetAvatar() {
             {avatars.map((avatar, index) => {
               return (
                 <div
+                key={index}
                   className={`avatar ${
                     selectedAvatar === index ? "selected" : ""
                   }`}
