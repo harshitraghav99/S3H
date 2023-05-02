@@ -119,10 +119,11 @@ const Login = () => {
 
 
                 </div>
+                <div className="footer">
+                    <p>Copyright S3H 2022</p>
+                </div>
             </div>
-            <div className="footer">
-                <p>Copyright S3H 2022</p>
-            </div>
+           
             <ToastContainer />
         </React.Fragment>
     )

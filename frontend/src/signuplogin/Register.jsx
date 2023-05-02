@@ -102,7 +102,7 @@ const Register = () => {
 
                     <button className="cn"><a href="#">JOIN US</a></button>
 
-                    <div className="form">
+                    <div className="form1">
                         <form onSubmit={(event) => handleSubmit(event)}>
                             <h2>Register Here</h2>
                             <input type="text" name="username" placeholder="Enter Name Here" onChange={(e) => handleChange(e)} />
@@ -128,10 +128,11 @@ const Register = () => {
 
 
                 </div>
+                <div className="footer">
+                    <p>Copyright S3H 2022</p>
+                </div>
             </div>
-            <div className="footer">
-                <p>Copyright S3H 2022</p>
-            </div>
+            
             <ToastContainer />
         </React.Fragment>
     )
