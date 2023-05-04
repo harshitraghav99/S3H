@@ -2,20 +2,26 @@ const mongoose = require("mongoose");
 
 const BacklogSchema = mongoose.Schema(
     {
-        backlog: {
+        description: {
              type: String, 
              required: true ,
         },
-        email: {
+        createdBy: {
             type: String,
             required: true,
             max: 50,
            
         },
-        index:{
+
+        id:{
             type:Number,
             unique:true,
             required:true
+        },
+        comment:{
+            type:Array,
+            required:false,
+            unique:false
         }
         
     }

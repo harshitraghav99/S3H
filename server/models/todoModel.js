@@ -2,21 +2,28 @@ const mongoose = require("mongoose");
 
 const TodoSchema = mongoose.Schema(
     {
-        todo: {
-             type: String, required: true ,
-        },
-        email: {
-            type: String,
-            required: true,
-        
-            max: 50,
+        description: {
+            type: String, 
+            required: true ,
+       },
+       createdBy: {
+           type: String,
+           required: true,
+           max: 50,
+          
+       },
+
+       id:{
+           type:Number,
+           unique:false,
+           required:true
+       },
+       comment:{
+           type:Array,
+           required:false,
+           unique:false
            
-        },
-        index:{
-            type:Number,
-            unique:true,
-            required:true
-        }
+       }
         
     }
 );

@@ -2,22 +2,28 @@ const mongoose = require("mongoose");
 
 const DoneSchema = mongoose.Schema(
     {
-        done: {
-             type: String,
-              required: true ,
-        },
-        email: {
-            type: String,
-            required: true,
-        
-            max: 50,
+        description: {
+            type: String, 
+            required: true ,
+       },
+       createdBy: {
+           type: String,
+           required: true,
+           max: 50,
+          
+       },
+
+       id:{
+           type:Number,
+           unique:true,
+           required:true
+       },
+       comment:{
+           type:Array,
            
-        },
-        index:{
-            type:Number,
-            unique:true,
-            required:true
-        }
+           required:false,
+           unique:false
+       }
         
     }
 );

@@ -6,8 +6,8 @@ const admin = "";
 
 module.exports.getTodo = async (req, res, next) => {
     try {
-        const { email } = req.body;
-        const todo = await Todo.find({ email });
+        const { createdBy } = req.body;
+        const todo = await Todo.find({ createdBy });
         if (!todo)
             return res.json({ msg: "no todo", status: false });
 
@@ -20,15 +20,16 @@ module.exports.getTodo = async (req, res, next) => {
 };
 module.exports.setTodo = async (req, res, next) => {
     try {
-        const { email, todo, index } = req.body;
-        // const user = await User.findOne({ email });
+        const { createdBy,description , id,comment } = req.body;
+        // const user = await User.findOne({ createdBy });
         //   if (user.todo)
         //     return res.json({ msg: "no todo", status: false });
         console.log(req.body);
         const todoNew = await Todo.create({
-            todo,
-            email,
-            index
+            description,
+            createdBy,
+            id,
+            comment
         });
         console.log(todoNew)
 
@@ -39,15 +40,15 @@ module.exports.setTodo = async (req, res, next) => {
 };
 module.exports.setTodoAdmin = async (req, res, next) => {
     try {
-        const { adminEmail, email, todo, index } = req.body;
-        // const user = await User.findOne({ email });
+        const { admincreatedBy, createdBy, todo, index } = req.body;
+        // const user = await User.findOne({ createdBy });
         //   if (user.todo)
         //     return res.json({ msg: "no todo", status: false });
-        if (adminEmail === admin) {
+        if (admincreatedBy === admin) {
             console.log(req.body);
             const todoNew = await Todo.create({
                 todo,
-                email,
+                createdBy,
                 index
             });
             console.log(todoNew)
@@ -61,8 +62,8 @@ module.exports.setTodoAdmin = async (req, res, next) => {
 };
 module.exports.deleteTodo= async(req,res,next)=>{
     // try{
-    //     const{email,todo,index}=req.body;
-    //     const todoDelete=await Todo.find({email,todo}).select([
+    //     const{createdBy,todo,index}=req.body;
+    //     const todoDelete=await Todo.find({createdBy,todo}).select([
             
     //             "_id"
             
@@ -93,7 +94,7 @@ module.exports.deleteTodo= async(req,res,next)=>{
     console.log(reqBody);
     console.log("body delete ");
 
-    const todo = await Todo.deleteOne({ index: reqBody.index , email:reqBody.email }).then(result => {
+    const todo = await Todo.deleteOne({ description: reqBody.description , createdBy:reqBody.createdBy }).then(result => {
         console.log(result);
         res.status(200).json({message: "Post deleted"});
       });
@@ -101,8 +102,8 @@ module.exports.deleteTodo= async(req,res,next)=>{
 };
 module.exports.getBacklog = async (req, res, next) => {
     try {
-        const { email } = req.body;
-        const backlog = await Backlog.find({ email });
+        const { createdBy } = req.body;
+        const backlog = await Backlog.find({ createdBy });
         if (!backlog)
             return res.json({ msg: "no backlog", status: false });
 
@@ -115,15 +116,16 @@ module.exports.getBacklog = async (req, res, next) => {
 };
 module.exports.setBacklog = async (req, res, next) => {
     try {
-        const { email, backlog, index } = req.body;
-        // const user = await User.findOne({ email });
+        const { createdBy, description, id ,comment} = req.body;
+        // const user = await User.findOne({ createdBy });
         //   if (user.todo)
         //     return res.json({ msg: "no todo", status: false });
         console.log(req.body);
         const backlogNew = await Backlog.create({
-            backlog,
-            email,
-            index
+            description,
+            createdBy,
+            id,
+            comment
         });
         console.log(backlogNew)
 
@@ -135,8 +137,8 @@ module.exports.setBacklog = async (req, res, next) => {
 
 module.exports.deleteBacklog= async(req,res,next)=>{
     // try{
-    //     const{email,todo,index}=req.body;
-    //     const todoDelete=await Todo.find({email,todo}).select([
+    //     const{createdBy,todo,index}=req.body;
+    //     const todoDelete=await Todo.find({createdBy,todo}).select([
             
     //             "_id"
             
@@ -167,7 +169,7 @@ module.exports.deleteBacklog= async(req,res,next)=>{
     console.log(reqBody);
     console.log("body delete ");
 
-    const backlog = await Backlog.deleteOne({ index: reqBody.index , email:reqBody.email }).then(result => {
+    const backlog = await Backlog.deleteOne({ description: reqBody.description , createdBy:reqBody.createdBy }).then(result => {
         console.log(result);
         res.status(200).json({message: "Post deleted"});
       });
@@ -175,8 +177,8 @@ module.exports.deleteBacklog= async(req,res,next)=>{
 };
 module.exports.getDone = async (req, res, next) => {
     try {
-        const { email } = req.body;
-        const done = await Done.find({ email });
+        const { createdBy } = req.body;
+        const done = await Done.find({ createdBy });
         if (!done)
             return res.json({ msg: "no done", status: false });
 
@@ -189,15 +191,16 @@ module.exports.getDone = async (req, res, next) => {
 };
 module.exports.setDone = async (req, res, next) => {
     try {
-        const { email, done, index } = req.body;
-        // const user = await User.findOne({ email });
+        const { createdBy, description, id,comment } = req.body;
+        // const user = await User.findOne({ createdBy });
         //   if (user.todo)
         //     return res.json({ msg: "no todo", status: false });
         console.log(req.body);
         const doneNew = await Done.create({
-            done,
-            email,
-            index
+            description,
+            createdBy,
+            id,
+            comment
         });
         console.log(doneNew)
 
@@ -209,8 +212,8 @@ module.exports.setDone = async (req, res, next) => {
 
 module.exports.deleteDone= async(req,res,next)=>{
     // try{
-    //     const{email,todo,index}=req.body;
-    //     const todoDelete=await Todo.find({email,todo}).select([
+    //     const{createdBy,todo,index}=req.body;
+    //     const todoDelete=await Todo.find({createdBy,todo}).select([
             
     //             "_id"
             
@@ -241,7 +244,7 @@ module.exports.deleteDone= async(req,res,next)=>{
     console.log(reqBody);
     console.log("body delete ");
 
-    const done = await Done.deleteOne({ index: reqBody.index , email:reqBody.email }).then(result => {
+    const done = await Done.deleteOne({ description: reqBody.description , createdBy:reqBody.createdBy }).then(result => {
         console.log(result);
         res.status(200).json({message: "Post deleted"});
       });
