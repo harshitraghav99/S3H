@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { deleteDone, setBacklog, setDone, setTodo } from '../../utils/APIRoutes';
+
+import axios from "axios";
 
 export default class CreateEditCard extends Component {
     constructor(props) {
@@ -40,6 +43,7 @@ export default class CreateEditCard extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
     handleSubmit(e, type) {
+        // const idCreation=0;
         if(type === 'new') {
             const maximum = 10000;
             const minimum = 45;
@@ -52,6 +56,53 @@ export default class CreateEditCard extends Component {
                 isEditable: false,
                 addComment: false
             }
+            
+            if(this.state.listName === "Todo"){
+              const temp= async ()=>{
+                const { data } = await axios.post(setTodo, {
+                    createdBy:this.state.createdBy,
+                    description:this.state.Description,
+                    id:randomnumber,
+                    comments:this.state.comments
+                });
+                if(data.status===false){
+                    console.log("error")
+                }
+                
+                }
+                temp();
+            }
+            if(this.state.listName === "backlog"){
+                const temp= async ()=>{
+                  const { data } = await axios.post(setBacklog, {
+                      createdBy:this.state.createdBy,
+                      description:this.state.Description,
+                      id:randomnumber,
+                      comments:this.state.comments
+                  });
+                  if(data.status===false){
+                      console.log("error")
+                  }
+                  
+                  }
+                  temp();
+              }
+              if(this.state.listName === "Done"){
+                const temp= async ()=>{
+                  const { data } = await axios.post(setDone, {
+                      createdBy:this.state.createdBy,
+                      description:this.state.Description,
+                      id:randomnumber,
+                      comments:this.state.comments
+                  });
+                  if(data.status===false){
+                      console.log("error")
+                  }
+                  
+                  }
+                  temp();
+              }
+
             this.props.createCard(newCard, this.state.listName);
         } else {
             const newCard = {
@@ -67,7 +118,25 @@ export default class CreateEditCard extends Component {
         this.toggle();
     }
     handleDelete(){
+        console.log(this.state.createdBy);
+        console.log(this.state.listName)
         this.props.deleteCard(this.state.id, this.state.listName);
+        if(this.state.listName === "Done"){
+            const temp= async ()=>{
+               await axios.delete(deleteDone, {
+                  createdBy:this.state.createdBy,
+                  description:this.state.Description
+                  
+              }).then(
+                console.log("deleted")
+              );
+            //   if(data.status===false){
+            //       console.log("error")
+            //   }
+              
+              }
+              temp();
+          }
         this.toggle();
     }
     enableEdit(){

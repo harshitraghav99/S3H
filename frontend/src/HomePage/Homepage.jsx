@@ -12,7 +12,7 @@ import axios from "axios";
 import ChatContainer from "../chat/components/ChatContainer";
 import { useNavigate } from "react-router-dom";
 import Welcome from '../chat/components/Welcome';
-// import Backlog from '../kanban/Backlog';
+import Backlogs from '../kanban/Backlogs';
 import Todo from '../kanban/Todo';
 import Doing from '../kanban/Doing';
 const Homepage = () => {
@@ -21,24 +21,24 @@ const Homepage = () => {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
-  // const [backlog,setBacklog]= useState(false);
+  const [backlog,setBacklog]= useState(false);
   
   const [todo,setTodo]=useState(false);
   const [doing,setDoing]=useState(false);
   const handleOnClickBacklog=()=>{
     setTodo(false);
     setDoing(false);
-    // setBacklog(true);    
+    setBacklog(true);    
   }
   const handleOnClickTodo=()=>{
     setTodo(true);
-    // setBacklog(false);
+    setBacklog(false);
     setDoing(false); 
   }
   const handleOnClickDoing=()=>{
     setDoing(true);
     setTodo(false);
-    // setBacklog(false); 
+    setBacklog(false); 
   }
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
@@ -94,6 +94,7 @@ const Homepage = () => {
   return (
     <React.Fragment>
     <Header />  
+    
 <div style={{display:"flex" ,paddingTop:'70px'}}>
     <div style={{width:"30%" ,backgroundColor:"ButtonFace" }}>
             
@@ -108,7 +109,7 @@ const Homepage = () => {
         <button type="button" class="btn btn-outline-secondary" onClick={handleOnClickTodo} style={{marginRight:"15 px"}} >TODO</button>
 
         <button type="button" onClick={handleOnClickDoing} class="btn btn-outline-success">DOING</button>
-       {/* {(backlog===true)? <Backlog/>: <></>} */}
+       {(backlog===true)? <Backlogs/>: <></>}
        {(doing===true)? <Doing/>: <></>}
        {(todo===true)? <Todo/>: <></>}
         {/* <Body /> */}

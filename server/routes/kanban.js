@@ -15,13 +15,13 @@ const {
   const router = require("express").Router();
   
   router.post("/setTodo", setTodo);
-  router.get("/getTodo", getTodo);
+  router.get("/getTodo/:createdBy", getTodo);
   router.delete("/deleteTodo",deleteTodo);
   router.post("/setBacklog", setBacklog);
-  router.get("/getBacklog", getBacklog);
+  router.get("/getBacklog/:createdBy", getBacklog);
   router.delete("/deleteBacklog",deleteBacklog);
   router.post("/setDone", setDone);
-  router.get("/getDone", getDone);
+  router.get("/getDone/:createdBy", getDone);
   router.delete("/deleteDone",deleteDone);
 //   router.get("/done", done);
 //   router.post("/done", done);

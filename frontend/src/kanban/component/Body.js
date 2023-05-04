@@ -140,16 +140,14 @@ export default class Body extends Component {
     });
   }
   render() {
-    // this.renderList();
-    return (
+     return (
       <React.Fragment>
         <Header/>
       <div className="body">
       <Banner openModal={this.toggleModal}/>
-      <AddListModal modalStatus={this.state.openModal} closeModal={this.closeModal} createList={this.createNewList}/>
-        {
-          this.renderList()
-        }
+      <AddListModal modalStatus={this.state.openModal} 
+      closeModal={this.closeModal} createList={this.createNewList}/>
+        {this.renderList()}
       </div>
       </React.Fragment>
     )

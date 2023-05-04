@@ -6,14 +6,15 @@ const admin = "";
 
 module.exports.getTodo = async (req, res, next) => {
     try {
-        const { createdBy } = req.body;
+        const  createdBy  = req.params.createdBy;
+        // console.log(req.params.createdBy);
         const todo = await Todo.find({ createdBy });
         if (!todo)
             return res.json({ msg: "no todo", status: false });
 
 
         // const todo = user.todo
-        return res.json({ status: true, todo });
+        return res.json({  todo });
     } catch (ex) {
         next(ex);
     }
@@ -102,14 +103,14 @@ module.exports.deleteTodo= async(req,res,next)=>{
 };
 module.exports.getBacklog = async (req, res, next) => {
     try {
-        const { createdBy } = req.body;
+        const  createdBy  = req.params.createdBy;
         const backlog = await Backlog.find({ createdBy });
         if (!backlog)
             return res.json({ msg: "no backlog", status: false });
 
 
         // const todo = user.todo
-        return res.json({ status: true, backlog });
+        return res.json({  backlog });
     } catch (ex) {
         next(ex);
     }
@@ -177,7 +178,7 @@ module.exports.deleteBacklog= async(req,res,next)=>{
 };
 module.exports.getDone = async (req, res, next) => {
     try {
-        const { createdBy } = req.body;
+        const  createdBy  = req.params.createdBy;
         const done = await Done.find({ createdBy });
         if (!done)
             return res.json({ msg: "no done", status: false });
@@ -244,7 +245,11 @@ module.exports.deleteDone= async(req,res,next)=>{
     console.log(reqBody);
     console.log("body delete ");
 
-    const done = await Done.deleteOne({ description: reqBody.description , createdBy:reqBody.createdBy }).then(result => {
+    const done = await Done.deleteOne({ 
+        description: reqBody.description ,
+         createdBy:reqBody.createdBy
+        // id:reqBody.id 
+        }).then(result => {
         console.log(result);
         res.status(200).json({message: "Post deleted"});
       });

@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import axios from "axios";
 import { registerRoute } from '../utils/APIRoutes'
 import { Link, useNavigate } from 'react-router-dom'
+
 const Register = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({

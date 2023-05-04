@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import {done} from './done';
+// import {backlogs} from './backlogs';
 import { useNavigate } from "react-router-dom";
-import { getDone } from "../utils/APIRoutes";
+import { getBacklog } from "../utils/APIRoutes";
 import axios from "axios";
-// import {doing} from './backlog';
-const Doing =()=>{
+const Backlogs =()=>{
     const navigate=useNavigate();
     const [currentUser,setCurrentUser]=useState();
-    const [ done,setDone]=useState([]);
+    const [ backlogs,setBacklogs]=useState([]);
     useEffect( () => {
         const temp=async()=>{
           if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
@@ -28,13 +27,13 @@ const Doing =()=>{
           if (currentUser) {
             console.log(currentUser.email);
            
-              const data = await axios.get(`${getDone}/${currentUser.email}`);
-              console.log(data.data.done);
-              setDone(data.data.done);
-              console.log(done);
+              const data = await axios.get(`${getBacklog}/${currentUser.email}`);
+              console.log(data.data.backlog);
+              setBacklogs(data.data.backlog);
+              console.log(backlogs);
             // let val = data.data.todo[1];
-            // setDone(val);
-            // console.log(done);
+            // setBacklogs(val);
+            // console.log(backlogs);
             
 
             }
@@ -42,17 +41,16 @@ const Doing =()=>{
         temp();
         
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [currentUser,done]);
-    console.log(done)
-    
+      }, [currentUser,backlogs]);
+    console.log(backlogs)
     return(
         <React.Fragment>
-            <div className="doing-container" style={{marginLeft:'20px',marginRight:'10px',marginTop:'10px'}}>
-            {done.map((data, key) => {
+            <div className="backlogs-container" style={{marginLeft:'20px',marginRight:'10px',marginTop:'10px'}}>
+            {backlogs.map((data, key) => {
           return (
             <div key={key}>
                 <ul>
-                    
+                   
                     <li>
               {data.Description}
               </li>
@@ -64,4 +62,4 @@ const Doing =()=>{
         </React.Fragment>
     )
 }
-export default Doing;
+export default Backlogs;

@@ -11,6 +11,7 @@ export default class Header extends Component {
          
          <h5 className="header-text" style={{}}><Link to="/">S3H</Link></h5>
          <h5 className="header-text" style={{}}><Link to="/body">Kanban Board </Link></h5>
+         <h5 className="header-text" style={{}}><Link to="/Chat">chat </Link></h5>
 
          <Logout />
         </div>

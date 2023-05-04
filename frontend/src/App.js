@@ -8,6 +8,7 @@ import SetAvatar from "./chat/components/SetAvatar"
 import Body from './kanban/component/Body';
 import ContactUs from './HomePage/contact-us-page--master/contactus';
 import AboutUs from './HomePage/about-us-master/about-us-master/AboutUs';
+// import Chat from '../../Chat/src/pages/Chat';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/body" element={<Body />} />
           <Route path="/contactus" element={<ContactUs/>}/>
           <Route path="/about" element={<AboutUs/>}/>
+          {/* <Route path ="/chat" element={<Chat />} /> */}
         </Routes>
       </BrowserRouter>
 
