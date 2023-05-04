@@ -207,7 +207,7 @@ module.exports.setDone = async (req, res, next) => {
     }
 };
 
-module.exports.deleteTodo= async(req,res,next)=>{
+module.exports.deleteDone= async(req,res,next)=>{
     // try{
     //     const{email,todo,index}=req.body;
     //     const todoDelete=await Todo.find({email,todo}).select([
